@@ -52,4 +52,7 @@ In both cases, nothing about the fields of the class changed. The empty string t
 
 ## Part 2 
 
+
 ## Part 3
+Although I found lab 2 and 3 a bit more challenging that I expected, I learned how to create and run web servers using a handler and how to fork changes straight onto my github repository. 
+# Also
