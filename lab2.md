@@ -51,7 +51,9 @@ If you wanted to add another message after the first one, it should save the pre
 In both cases, nothing about the fields of the class changed. The empty string that was first created when the class was called is being updated with strings based on the user's input. If the input has the format of ```/add-message?s=<string>``` it should consider whatever is after the = sign as a string despite its value because the value is converted into a string.  
 
 ## Part 2 
+The buggy program I will be looking at is the  ```averageWithoutLowest``` method. In this method returns the averages of all the elements in the array besides the lowest value and if there are no elements or just one element in the array, it should return 0. 
 
+A failing test case for ```averageWithoutLowest``` is one where there is two of the same lowest values. 
 
 ## Part 3
 Although I found lab 2 and 3 a bit more challenging that I expected, I learned how to create and run web servers using a handler and how to fork changes straight onto my github repository. 
