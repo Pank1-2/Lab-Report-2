@@ -80,7 +80,7 @@ The symptom in this case is the 2.25 output when we ran the failing test. The bu
 
 <img src = "Screen Shot 2023-04-24 at 5.19.47 PM.png" width = "600" height = "300">
 
-Code with bug: 
+**Code with bug:**
 ``` 
 static double averageWithoutLowest(double[] arr) {
     if(arr.length < 2) { return 0.0; }
@@ -96,7 +96,7 @@ static double averageWithoutLowest(double[] arr) {
   }
 ```
 
-Code without bugs: 
+**Code without bugs:**
 ``` 
 static double averageWithoutLowest(double[] arr) {
     if(arr.length < 2) { return 0.0; }
