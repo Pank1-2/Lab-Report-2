@@ -38,7 +38,7 @@ class Handler implements URLHandler {
 } 
 ```
 
-helloAfter running ```javac Server.java StringServer.java``` and ```java StringServer (port number)``` in the terminal, you should get a link to the local host port server where you can start adding strings. These two commands calls the ```StringServer``` class and creates a local server. 
+After running ```javac Server.java StringServer.java``` and ```java StringServer (port number)``` in the terminal, you should get a link to the local host port server where you can start adding strings. These two commands calls the ```StringServer``` class and creates a local server. 
 
 Once you open the local host link it should look blank like the image below! <img src = "Screen Shot 2023-04-24 at 2.22.55 PM.png" width = "500" height ="250">
 
