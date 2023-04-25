@@ -49,6 +49,7 @@ When you add a message using ```/add-message?s=<string>``` it should appear on t
 If you wanted to add another message after the first one, it should save the previous messages and add the new message on the line below. Similarly, when adding a new message, it goes through the same process as the one above where it runs through the if statements in the ```handleRequest``` class. The message here is being added onto the previous one so it updates the existing string by adding the current inputted string onto the previous string variable. 
 
 <img src = "Screen Shot 2023-04-24 at 2.23.24 PM.png" width = "500" height = "190">
+
 In both cases, nothing about the fields of the class changed. The empty string that was first created when the class was called is being updated with strings based on the user's input. If the input has the format of ```/add-message?s=<string>``` it should consider whatever is after the = sign as a string despite its value because the value is converted into a string.  
 
 ## Part 2 
