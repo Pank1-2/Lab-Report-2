@@ -17,7 +17,6 @@ public class StringServer{
         Server.start(port, new Handler());
     }
 }
-
 class Handler implements URLHandler {
     String x = "";
 
