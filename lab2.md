@@ -53,8 +53,66 @@ In both cases, nothing about the fields of the class changed. The empty string t
 ## Part 2 
 The buggy program I will be looking at is the  ```averageWithoutLowest``` method. In this method returns the averages of all the elements in the array besides the lowest value and if there are no elements or just one element in the array, it should return 0. 
 
-A failing test case for ```averageWithoutLowest``` is one where there is two of the same lowest values. 
+A failing test case for ```averageWithoutLowest``` is one where there is two of the same lowest values. An example is shown below.
+``` 
+@Test 
+public void testavg(){
+    double[] input1 = {0.0, 2.0, 2.0, 5.0, 0.0};
+    assertEquals(3, ArrayExamples.averageWithoutLowest(input1), 0.0); 
+}
+```
+In this test case, it is expected that the output is 3 because the lowest value is 0.0 and since it shows up twice, we don't want to include either of them  in our calculations. So, 2 + 2 + 5 = 9 and since there are three values, we would divide it by 3 giving us 3. However, when running this test, we get 2.25 instead because the code divides by 4 instead of 3. 
+
+An input that doesn't fail is one where there is only one lowest value. An example is shown below.
+``` 
+@Test 
+public void testavg(){
+    double[] input1 = {0.0, 2.0, 2.0, 5.0};
+    assertEquals(3, ArrayExamples.averageWithoutLowest(input1), 0.0); 
+}
+```
+Since this test case only has one lowest value, the code runs as expected. The ```averageWithoutLowest``` method is written to expect one lowest value which is why this one would work and the previous test case wouldn't. 
+
+The symptom in this case is the 2.25 output when we ran the failing test. The bug is in the return statement. It returns the sum of all the values expect the lowest divided by the length of the array minus 1. It assumes that there is only one instance of the lowest value and doesn't take into account duplicates. 
+
+Code with bug: 
+``` 
+static double averageWithoutLowest(double[] arr) {
+    if(arr.length < 2) { return 0.0; }
+    double lowest = arr[0];
+    for(double num: arr) {
+      if(num < lowest) { lowest = num; }
+    }
+    double sum = 0;
+    for(double num: arr) {
+      if(num != lowest) { sum += num; }
+    }
+    return sum / (arr.length - 1);
+  }
+```
+
+Code without bugs: 
+``` 
+static double averageWithoutLowest(double[] arr) {
+    if(arr.length < 2) { return 0.0; }
+    double lowest = arr[0];
+    for(double num: arr) {
+      if(num < lowest) { lowest = num; }
+    }
+    double sum = 0;
+    for(double num: arr) {
+      if(num != lowest) { sum += num; }
+    }
+    double low = 0;
+    for(double num: arr){
+      if(num == lowest){
+        low++;
+      }
+    }
+    return sum / (arr.length - low);
+  }
+```
+In the fixed code, it uses a for loop and loops through the array and counts how many instances the lowest value shows up. Then instead of just subtracting the array length by 1 in the return statement, it subtracts by the number of times the lowest value occurs fixing the code. 
 
 ## Part 3
-Although I found lab 2 and 3 a bit more challenging that I expected, I learned how to create and run web servers using a handler and how to fork changes straight onto my github repository. 
-# Also
+Although I found lab 2 and 3 a bit more challenging that I expected, I learned how to create and run web servers using a handler and how to fork changes straight onto my github repository. I was able to practice writing test cases and debug code. Although I already know how to write test cases, debugging the linked list helped me gain a better understanding of linked lists. 
