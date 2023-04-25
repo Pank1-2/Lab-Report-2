@@ -76,7 +76,9 @@ public void testavg(){
 ```
 Since this test case only has one lowest value, the code runs as expected. The ```averageWithoutLowest``` method is written to expect one lowest value which is why this one would work and the previous test case wouldn't. 
 
-The symptom in this case is the 2.25 output when we ran the failing test. The bug is in the return statement. It returns the sum of all the values expect the lowest divided by the length of the array minus 1. It assumes that there is only one instance of the lowest value and doesn't take into account duplicates. 
+The symptom in this case is the 2.25 output when we ran the failing test. The bug is in the return statement. It returns the sum of all the values expect the lowest divided by the length of the array minus 1. It assumes that there is only one instance of the lowest value and doesn't take into account duplicates. Below is a picture of the symptom of the failing test case. 
+
+<img src = "Screen Shot 2023-04-24 at 5.19.47 PM.png" width = "600" height = "300">
 
 Code with bug: 
 ``` 
